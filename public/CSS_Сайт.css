@@ -20,6 +20,7 @@ time, mark, audio, video {
 	text-decoration:none;
 	text-align: left;
 	max-width:1360px;
+	max-height:643px;
 }
 html, body {
 	position: fixed;
