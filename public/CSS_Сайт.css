@@ -1,0 +1,615 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration:none;
+	text-align: left;
+	max-width:1360px;
+}
+html, body {
+	position: fixed;
+	font-family: 'Rubik', sans-serif;
+}
+body{
+	height: 100%;
+	width: 100%;
+}
+body::before{
+	content:'';
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	background-image: url(background.png);
+	background-size: cover ;
+	font-size: 13px;
+	line-height: 1.2;
+	background-color: #171d39;
+}
+.all{
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	outline:1px solid hsla(0,0%,100%,.08);
+}
+/*front-end*/
+.header{
+	position: fixed;
+	height: 10%;
+	width: 100%;
+	background-color: #171d39;
+	outline:1px solid hsla(0,0%,100%,.08);
+	color: white;
+	z-index: 20;
+}
+.header::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    -webkit-transition: .5s;
+    transition: .5s;
+    width: calc(100% - 11rem);
+    height: 3px;
+    border-radius: 99rem;
+    background-color: #1c2344;
+}
+.home{
+    position: fixed;
+    top: 36px;
+    width: 72px;
+    left: 295px;
+    height: 32px;
+	color:#fff;
+}
+.home_icon{
+	position: fixed;
+	background-repeat:no-repeat;
+	background-image:url(icon_home.svg);
+	left: 272px;
+	height: 16px;
+	width: 16px;
+	margin-right:5%;
+	filter: grayscale(1);
+	z-index: 0;
+}
+.steam-login {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+	width:200;
+    height: 40;
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+    position: absolute;
+    overflow: hidden;
+	
+	text-align: center;
+    text-transform: uppercase;
+	border-radius: 1rem;
+    color: white;
+	background-color: #61ac73;
+	font-weight: 500;
+	align-items: center;
+	font-size: 10px;
+	outline:none;
+	border:none;
+	top:18px;
+	left:734px;
+}
+/*Логотип*/
+.logo-background{
+	background-color: #1c2344;
+	width:250px;
+	height:64px;
+}
+.logo{
+	background-image:url(logo.svg);
+	background-size: contain;
+    width: 234px;
+    height: 35px;
+}
+/*Меню(Лево)*/
+.hidden {
+    position: fixed;
+    top: 10%;
+    left: 0%;
+    z-index: 18;
+    height: 100%;
+    width: 3%;
+    font-size: 16px;
+    background-color: #1c2344;
+    outline: 1px solid hsla(0,0%,100%,.08);
+    border-width: 2px;
+    overflow: auto;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+.nav{
+	background-color: #171d39;
+    padding-right: 1px;
+	cursor: pointer;
+	outline:1px solid hsla(0,0%,100%,.08);
+	height: 6%;
+	width: 100%;
+	z-index: 1;
+}
+.market_icon {
+	position: fixed;
+	background-repeat:no-repeat;
+	background-image:url(icon_sort-all.svg);
+	height: 16px;
+	width: 16px;
+	margin: 0.8%;
+	filter: grayscale(1);
+	z-index: 0;
+}
+.Basket_icon{
+	position: fixed;
+	background-repeat:no-repeat;
+	color:hsla(0,0%,100%,.5);
+	top: 105px;
+    left: 4;
+}
+/*Контент*/
+.Content{
+	position:fixed;
+	height: 90%;
+	width: 97%;
+	left:3%;
+	top:10%;
+}
+/*Заголовок и задник магазина*/
+.market_background{
+	display: none;
+	background-color: rgba(23, 29, 57, 0.6);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 5;
+}
+.market{
+	position: absolute;
+    display: block;
+	background:#171d39;
+	top:1%;
+	left:1%;
+	width: 20%;
+	height: 100%;
+	z-index: 2;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+	outline:1px solid hsla(0,0%,100%,.08);
+}
+.modal__content {
+    min-width: 46.5rem;
+    min-height: 81rem;
+    overflow: visible;
+}
+.modal__content::before {
+	content: '';
+	width: -10%;
+	height: 0;
+	position: absolute;
+	top: 1%;
+	left:-3%;
+	border-top: .9rem solid transparent;
+	border-bottom: .9rem solid transparent;
+	border-right: .5rem solid #21294d;
+}
+.market-header {
+    position: absolute;
+	top:0%;
+    height:10%;
+	width:100%;
+	padding:0,001%;
+}
+.market-title{
+	padding: 2%;
+    display: -webkit-box;
+    display: flex;
+    height: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #bec6e3;
+	font-size:8px;
+}
+.market-close{
+	position: absolute;
+	top:40%;
+	left:78%;
+	color:fff;
+}
+/*Заголовок и задник магазина КОНЕЦ*/
+.market-form{
+	position: absolute;
+	top:10%;
+	width:100%;
+	height: 11%;
+}
+/*ПОИСК*/
+
+.Search-form {
+	position: absolute;
+}
+.d1 input {
+	width: 77%;
+	outline: none;
+	background: rgba(0,0,0,0.5);
+	padding-left: 10px;
+	border-bottom: none;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-radius:5px;
+	color: #545454;
+	font-family: 'Open Sans';
+	font-size: 12px;
+	margin-left:5%;
+	margin-right:5%;
+}
+
+.Number-form_min {
+	position: absolute;
+	left:50%;
+}
+.d1_min input {
+	width: 77%;
+	outline: none;
+	padding-left: 10px;
+	background: rgba(0,0,0,0.5);
+	border-bottom: none;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-radius:5px;
+	color: #545454;
+	font-family: 'Open Sans';
+	font-size: 12px;
+}
+.Number-form_max {
+	position: fixed;
+	top:24%;
+}
+.d1_max input {
+	width: 77%;
+	outline: none;
+	padding-left: 10px;
+	background: rgba(0,0,0,0.5);
+	border-bottom: none;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-radius:5px;
+	color: #545454;
+	font-family: 'Open Sans';
+	font-size: 12px;
+	margin-left:5%;
+}
+/*ПОИСК КОНЕЦ*/
+/*Магазин быстый доступ*/
+.market-list-mini{
+	top:21%;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    position:absolute;
+	background-color: #171d39;
+}
+.market-list-mini{
+	display: block;
+	left:5%;
+	width:80%;
+	height: 71%;
+    border-radius: 1rem;
+    padding: 2%;
+    overflow: visible;
+	background-color:#13172e;
+	overflow-y: auto;
+    overflow-x: hidden;
+}
+/*Продукт*/
+.item{
+	display: inline-block;
+	width:75px;
+	height:75px;
+	background-color: #2c3663;
+	border-radius: 1rem 1rem 1rem 1rem;
+	text-align: left;
+	margin:2.5px;
+	flex-direction: column;
+}
+.buy{
+	width:75px;
+	height:75px;
+}
+.price_222{
+	left: 27px;
+    top: 7px;
+	position: relative;
+	z-index: 2;
+	font-size: 8px;
+	color: #ffce79;
+	font-weight: 500;
+}
+.img{
+	top:-7px;
+	left: 8px;
+	width:61px;
+	height:68px;
+	position: relative;
+	z-index: 1;
+}
+.text{
+	left:4px;
+	top: -31px;
+    position: relative;
+	margin-bottom: 0.5em;
+	font-size: 8px;
+	color: #c5cbe2;
+	z-index: 2;
+}
+/*магазин КОНЕЦ*/
+/*Главная*/
+.home_1{
+	display:none;
+	width:100%;
+	height:100%;
+	background-color: #171d39;
+}
+.home_news{
+	background-color: #2c3663;
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    top: 26px;
+    left: 21px;
+    border-radius: 1rem;
+	border:3px solid hsla(0,0%,100%,.08);
+}
+.news_Stonks{
+	background-image:url(Stonks.jpg);
+	width: 100%;
+    height: 100%;
+	border-radius: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*******************************
+ *
+ *******************************/
+ 
+.bird
+{
+/*border: 4px solid #999;*/
+width: 100px;
+height: 30px;
+position: absolute;
+text-align: left;
+display: none;
+/*background: #F0F0F0;*/
+vertical-align: middle;
+font-size: 18px;
+} 	
+.blindLayer {
+background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+bottom: 0;
+left: 0;
+position: fixed;
+right: 0;
+top: 0;
+z-index: 1001;
+display: none;
+}
+.bcontainer
+{
+position: absolute;
+width: 800px;
+height: 422px;
+    margin-left: 205px;
+    margin-top: -105px;
+background: #fff;
+border: 8px solid #999;	
+padding: 20px;
+display: none;
+z-index: 1002;
+}
+#overflw
+{
+overflow-y: scroll;
+overflow-x: hidden;
+height: 300px;
+	
+	
+}
+
+#bcaption
+{
+background: #C0C0C0;
+
+}
+#bcaption td
+{
+border-right: 2px solid #999;
+font-weight: bold;
+text-align: center;	
+}
+#bcaption td {padding: 5px;}
+#bcaption td:nth-child(1) { width: 50px; }		/*ID*/
+#bcaption td:nth-child(2) { width: 300px; }		/*NAME*/
+#bcaption td:nth-child(3) { width: 100px; }		/*PRICE*/
+#bcaption td:nth-child(4) { width: 150px; }		/*NUM*/
+#bcaption td:nth-child(5) { width: 70px; }		/*SUM*/
+
+.bitem td
+{
+font: normal 18px Arial;
+color: #999;
+padding: 5px;	
+border-bottom: 1px solid #999;	
+border-right: 2px solid #FFF;
+}
+
+.bitem td:nth-child(1) { width: 50px; }
+.bitem td:nth-child(2) { width: 300px; }
+.bitem td:nth-child(3) { width: 100px; text-align: center;} 
+.bitem td:nth-child(4) { width: 150px; text-align: center;}
+.bitem td:nth-child(5) { width: 70px; text-align: center;}
+
+#bclose
+{
+float: right;	
+}
+
+.bcontainer table
+{
+width: 100%;	
+}
+.bbutton
+{
+color: #999;
+-webkit-box-shadow: 0px 0px 3px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 0px 3px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 0px 3px 0px rgba(50, 50, 50, 0.75);	
+padding: 5px;
+font: bold 16px Arial;	
+float: right;
+}
+#bsum
+{
+float: right;
+margin: 0 20px;	
+font: normal 18px Arial;
+}
+.popup {
+    background: none repeat scroll 0 0 #F2F2F2;
+    border: 1px solid #808040;
+    left: 50%;
+    margin-left: -265px;
+    padding: 25px 20px;
+    position: fixed;
+    top: 50px;
+    width: 550px;
+    z-index: 2002;
+    display: none;
+}  
+.popup h4	{
+		margin-bottom: 4px;
+	}
+	.popup form	{
+		padding: 30px 0 0 0;
+	}
+	.popup input[type="text"]{
+		text-align: center;
+		font-style: italic;
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+		border: 1px solid #D9D9D9;
+    	display: inline-block;
+    	height: 40px;
+    	line-height: 40px;
+    	padding: 0;
+    	vertical-align: middle;
+	}
+	
+	
+	.popup .alignCenter	{
+		margin-top: 30px;
+	}
+	.popup textarea {
+    display: block;
+    font-style: italic;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    
+	}
+.basket_num
+	{
+	padding: 4px;
+	background: #F0F0F0;	
+	}
+.basket_num_buttons
+	{
+	width: 20px; 
+	height: 20px;
+	border: 1px solid #000;
+	margin: 0 5px;
+	display: inline-block;	
+	color: #FFF;
+	background: #000;
+	text-align: center;
+	cursor: pointer;	
+	}
+.v {border:1px solid #999; border-radius: 5px;padding: 10px;margin-bottom: 10px; width: 340px;}
+.cart
+{
+width: 300px;
+height: 70px;
+position: absolute;
+top: 20px;
+right: 20px;
+border: 1px solid #004080;
+border-radius: 5px;
+padding: 10px;
+font: normal 11px Arial;
+}
+.price
+{
+margin: 10px;
+font: normal 16px Arial;
+border-radius: 5px;
+background: #F0F0F0;
+text-align: center;
+padding: 8px;
+}
+.WASD{
+	position: absolute;
+ font-size: 7px;
+ color:rgba(1,1,1,0);
+ z-index: 5;
+}
